@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/TourmalineCore/web-junior-mentorship-back#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.2"
   }
 }
