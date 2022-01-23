@@ -8,6 +8,8 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+let lastClientId = 4
+
 const clients = [
   {
     id: 1,
@@ -33,7 +35,7 @@ app.get('/clients', (req, res) => {
 
 app.post('/clients', (req, res) => {
   const newClient = {
-    id: 4,
+    id: lastClientId++,
     name: req.body.name,
   }
 
