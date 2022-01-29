@@ -13,15 +13,18 @@ let lastClientId = 4
 const clients = [
   {
     id: 1,
-    name: 'Bombaster'
+    name: 'Bombaster',
+    description: 'Great thing',
   },
   {
     id: 2,
-    name: 'Lowcoaster'
+    name: 'Lowcoaster',
+    description: 'Cheap',
   },
   {
     id: 3,
-    name: 'Joomanji'
+    name: 'Joomanji',
+    description: '',
   },
 ]
 
@@ -37,6 +40,7 @@ app.post('/clients', (req, res) => {
   const newClient = {
     id: lastClientId++,
     name: req.body.name,
+    description: req.body.description || '',
   }
 
   clients.push(newClient)
