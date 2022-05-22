@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
+
 const app = express()
 const port = 5000
 
@@ -37,10 +38,15 @@ app.get('/clients', (req, res) => {
 })
 
 app.post('/clients', (req, res) => {
+  const {
+    name,
+    description = '', 
+  } = req.body
+
   const newClient = {
     id: lastClientId++,
-    name: req.body.name,
-    description: req.body.description || '',
+    name,
+    description,
   }
 
   clients.push(newClient)
@@ -51,5 +57,5 @@ app.post('/clients', (req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Example app listening on port ${port}. Available at http://localhost:5000`)
 })
