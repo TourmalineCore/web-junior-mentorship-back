@@ -1,9 +1,9 @@
-const express = require('express')
-const cors = require('cors')
-const bodyParser = require('body-parser')
+const express = require(`express`)
+const cors = require(`cors`)
+const bodyParser = require(`body-parser`)
 
 const app = express()
-const port = 5000
+const PORT = 5000
 
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -14,33 +14,33 @@ let lastClientId = 4
 const clients = [
   {
     id: 1,
-    name: 'Bombaster',
-    description: 'Great thing',
+    name: `Bombaster`,
+    description: `Great thing`,
   },
   {
     id: 2,
-    name: 'Lowcoaster',
-    description: 'Cheap',
+    name: `Lowcoaster`,
+    description: `Cheap`,
   },
   {
     id: 3,
-    name: 'Joomanji',
-    description: '',
+    name: `Joomanji`,
+    description: ``,
   },
 ]
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get(`/`, (req, res) => {
+  res.send(`Hello World!`)
 })
 
-app.get('/clients', (req, res) => {
+app.get(`/clients`, (req, res) => {
   res.send(clients)
 })
 
-app.post('/clients', (req, res) => {
+app.post(`/clients`, (req, res) => {
   const {
     name,
-    description = '', 
+    description = ``, 
   } = req.body
 
   const newClient = {
@@ -56,6 +56,6 @@ app.post('/clients', (req, res) => {
   })
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}. Available at http://localhost:5000`)
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}. Available at http://localhost:5000`)
 })
