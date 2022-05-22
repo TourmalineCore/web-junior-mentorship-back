@@ -13,7 +13,7 @@ npm ci
 To run the service:
 
 ```
-node index.js
+npm start
 ```
 
 ## Available endpoints
