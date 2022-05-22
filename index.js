@@ -56,6 +56,19 @@ app.post(`/clients`, (req, res) => {
   })
 })
 
+app.delete(`/clients/:id`, (req, res) => {
+  const clientId = parseInt(req.params.id);
+
+  const clientToDeleteIndex = clients.findIndex(client => client.id === clientId);
+
+  if(clientToDeleteIndex !== -1) {
+    clients.splice(clientToDeleteIndex, 1);
+    res.send(true);
+  } else {
+    res.send(false);
+  }
+})
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}. Available at http://localhost:5000`)
 })

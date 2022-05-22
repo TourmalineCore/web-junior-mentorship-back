@@ -27,3 +27,4 @@ Available endpoints:
     "description": "Nielsen is the best"
 }
 ```
+- DELETE http://localhost:5000/clients/1 - delete a client whose id is 1
