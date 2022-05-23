@@ -69,6 +69,15 @@ app.delete(`/clients/:id`, (req, res) => {
   }
 })
 
+app.get(`/clients/:id`, (req, res) => {
+  const clientId = parseInt(req.params.id);
+  
+  const client = clients.find(client => client.id === clientId);
+
+  res.send(client)
+})
+
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}. Available at http://localhost:5000`)
 })
