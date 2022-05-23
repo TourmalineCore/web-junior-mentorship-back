@@ -19,8 +19,15 @@ npm start
 ## Available endpoints
 
 Available endpoints:
-- GET http://localhost:5000/clients - retrieve the list of clients
+- GET http://localhost:5000/clients?searchTerm=Bombaster - retrieve the list of filtered clients by name
 - POST http://localhost:5000/clients - create a new client
+```
+{
+    "name": "The biggest client LLC",
+    "description": "Nielsen is the best"
+}
+```
+- POST http://localhost:5000/clients/1 - update the client
 ```
 {
     "name": "The biggest client LLC",
