@@ -34,7 +34,13 @@ app.get(`/`, (req, res) => {
 })
 
 app.get(`/clients`, (req, res) => {
-  res.send(clients)
+  const {
+    searchTerm = ``
+  } = req.query
+
+  const normalizedSearchTerm = searchTerm.trim().toLowerCase()
+
+  res.send(clients.filter(client => !normalizedSearchTerm || client.name.toLowerCase().includes(normalizedSearchTerm)))
 })
 
 app.post(`/clients`, (req, res) => {
