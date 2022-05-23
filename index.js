@@ -56,6 +56,27 @@ app.post(`/clients`, (req, res) => {
   })
 })
 
+app.post(`/clients/:id`, (req, res) => {
+  const clientId = parseInt(req.params.id)
+
+  const {
+    name,
+    description = ``, 
+  } = req.body
+
+  const client = clients.find(client => client.id === clientId)
+
+  if(client) {
+    client.name = name,
+    client.description = description
+    
+    res.send(true);
+  } else {
+    res.send(false);
+  }
+})
+
+
 app.delete(`/clients/:id`, (req, res) => {
   const clientId = parseInt(req.params.id);
 
@@ -68,6 +89,15 @@ app.delete(`/clients/:id`, (req, res) => {
     res.send(false);
   }
 })
+
+app.get(`/clients/:id`, (req, res) => {
+  const clientId = parseInt(req.params.id);
+  
+  const client = clients.find(client => client.id === clientId);
+
+  res.send(client)
+})
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}. Available at http://localhost:5000`)
